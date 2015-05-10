@@ -9,17 +9,16 @@ module.exports.favoriteNumber = function(fav,guess) {
 };
 
 module.exports.checkLock = function(a,b,c,d) {
-   var check = "incorrect";
    if ((a===3) || (a === 5) || (a === 7)) {
       if (b===2) {
          if ((5 <= c) && (c <= 100)) {
             if ((d < 9) || (20 < d)) {
-               check = "correct";
+               return "correct";
             }
          }
       }
    }
-   return check;
+   return "incorrect";
 };
 
 module.exports.canIGet = function(item, money) {

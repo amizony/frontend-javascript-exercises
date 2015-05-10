@@ -10,20 +10,20 @@ module.exports.sumNumbers = function(array) {
 
 module.exports.splitAndLowerCaseString = function(inputString) {
    var ret = [];
-   var temp = "";
-   inputString = inputString.toLowerCase();
-   for (var i = 0; i < inputString.length; i++) {
-      if (inputString[i] != ',') {
-         temp += inputString[i];
-      } else {
-         ret.push(temp);
-         temp = "";
-      }
-   };
-   if (inputString[inputString.length-1] != ',') {
-      ret.push(temp);
+   var index = 0;
+   if (inputString.length === 0) {
+      return [""];
+   } else {
+      inputString = inputString.toLowerCase();
+      for (var i = 0; i < inputString.length; i++) {
+         if (inputString[i] === ',') {
+            ret.push(inputString.slice(index,i));
+            index = i+1;
+         }
+      };
+      ret.push(inputString.slice(index,i));
+      return ret;
    }
-   return ret;
 };
 
 module.exports.addIndex = function(array) {
