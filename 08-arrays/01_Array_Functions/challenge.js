@@ -1,16 +1,10 @@
 module.exports.reversePlusOne = function(array) {
-   array.push(1);
-   return array.reverse();
+   array.reverse().unshift(1);
+   return array;
 };
 
 module.exports.plusesEverywhere = function(array) {
-   var str = "";
-   for (var i = 0; i < array.length-1; i++) {
-      str += array[i];
-      str += "+";
-   };
-   str += array[array.length-1];
-   return str;
+   return array.toString().replace(/,/g, "+");
 };
 
 module.exports.arrayQuantityPlusOne = function(array) {

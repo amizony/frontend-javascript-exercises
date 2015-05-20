@@ -15,8 +15,8 @@ module.exports.extend = function(dest, src) {
 
 module.exports.hasElems = function(object, array) {
    var hasIt = true;
-   for (var i = 0; i < array.length; i++) {
-      hasIt = hasIt && object.hasOwnProperty(array[i]);
+   for (var item in array) {
+      hasIt = hasIt && object.hasOwnProperty(array[item]);
    };
    return hasIt;
 };

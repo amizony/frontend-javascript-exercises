@@ -2,7 +2,8 @@ module.exports.createCourse = function(courseTitle, courseDuration, courseStuden
    return {
       title: courseTitle,
       duration: courseDuration,
-      students: courseStudents,};
+      students: courseStudents
+   };
 };
 
 module.exports.addProperty = function(object, newProp, newValue) {
@@ -17,21 +18,11 @@ module.exports.formLetter = function(letter) {
 };
 
 module.exports.canIGet = function(item, money) {
-   var item1 = {
-      name: 'MacBook Air',
-      price: 999,
+   var itemList = {
+      "MacBook Air" : 999,
+      "MacBook Pro" : 1299,
+      "Mac Pro" : 2499,
+      "Apple Sticker" : 1
    };
-   var item2 = {
-      name: 'MacBook Pro',
-      price: 1299,
-   };
-   var item3 = {
-      name: 'Mac Pro',
-      price: 2499,
-   };
-   var item4 = {
-      name: 'Apple Sticker',
-      price: 1,
-   };
-   return ((item1.name === item) && (money >= item1.price)) || ((item2.name === item) && (money >= item2.price)) || ((item3.name === item) && (money >= item3.price)) || ((item4.name === item) && (money >= item4.price));
-};
+   return (item in itemList) && (money >= itemList[item]);
+}
